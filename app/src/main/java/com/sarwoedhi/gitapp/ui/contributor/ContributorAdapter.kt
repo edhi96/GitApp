@@ -33,7 +33,11 @@ class ContributorAdapter(private val context: Context) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(userList[position])
         holder.itemView.setOnClickListener {
-            Toast.makeText(context,"You choose : ${userList[position].ownersName}",Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                context,
+                "You choose : ${userList[position].ownersName}",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
