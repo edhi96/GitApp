@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">RepoGithubApp</string>
+    <string name="app_name">GitApp</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_hint">Search</string>
+    <string name="html_url">Html url</string>
+    <string name="user_type">User Type</string>
+    <string name="username">username</string>
+    <string name="image_authors">imageDetailsAuthors</string>
 </resources>
