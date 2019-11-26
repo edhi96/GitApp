@@ -15,6 +15,11 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'BASE_URL', BASE_URL
+    }
+
     buildTypes {
         release {
             minifyEnabled false
