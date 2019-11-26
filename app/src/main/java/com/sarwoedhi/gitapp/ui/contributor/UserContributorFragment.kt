@@ -45,7 +45,6 @@ class UserContributorFragment : Fragment() {
         dataUsers.observe(requireActivity(), Observer {
             if (!it.isNullOrEmpty()) {
                 mAdapter.setUsersData(it)
-                mAdapter.notifyDataSetChanged()
                 mProgressBar.visibility = View.GONE
                 recycleContributes.adapter = mAdapter
                 recycleContributes.layoutManager = LinearLayoutManager(requireContext())
