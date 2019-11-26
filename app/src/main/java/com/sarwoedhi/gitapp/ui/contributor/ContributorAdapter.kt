@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.sarwoedhi.gitapp.R
 import com.sarwoedhi.gitapp.data.models.GithubEntity
@@ -32,7 +33,7 @@ class ContributorAdapter(private val context: Context) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(userList[position])
         holder.itemView.setOnClickListener {
-
+            Toast.makeText(context,"You choose : ${userList[position].ownersName}",Toast.LENGTH_SHORT).show()
         }
     }
 
