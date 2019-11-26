@@ -17,7 +17,7 @@
             android:id="@+id/imgPhotoOwner"
             android:layout_width="125dp"
             android:layout_height="150dp"
-            android:contentDescription="imageDetailsAuthors"
+            android:contentDescription="@string/image_authors"
             android:scaleType="fitXY" />
 
         <TextView
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_toEndOf="@id/imgPhotoOwner"
-            android:text="username"
+            android:text="@string/username"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -41,7 +41,7 @@
             android:layout_toEndOf="@id/imgPhotoOwner"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="Html url" />
+            android:text="@string/html_url" />
 
         <TextView
             android:id="@+id/tvUserType"
@@ -53,6 +53,6 @@
             android:layout_toEndOf="@id/imgPhotoOwner"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="User Type" />
+            android:text="@string/user_type" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
