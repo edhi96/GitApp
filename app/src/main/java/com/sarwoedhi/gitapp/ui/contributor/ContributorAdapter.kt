@@ -10,7 +10,8 @@ import com.sarwoedhi.gitapp.data.models.GithubEntity
 import com.sarwoedhi.gitapp.util.GlideApp
 import kotlinx.android.synthetic.main.item_users.view.*
 
-class ContributorAdapter(private val context: Context):RecyclerView.Adapter<ContributorAdapter.ViewHolder>(){
+class ContributorAdapter(private val context: Context) :
+    RecyclerView.Adapter<ContributorAdapter.ViewHolder>() {
 
     private var userList = ArrayList<GithubEntity>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
