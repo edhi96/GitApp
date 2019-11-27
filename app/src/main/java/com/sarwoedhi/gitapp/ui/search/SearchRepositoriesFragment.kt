@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,7 +14,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sarwoedhi.gitapp.R
 import com.sarwoedhi.gitapp.data.models.SearchEntity
 import kotlinx.android.synthetic.main.fragment_search_repositories.view.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class SearchRepositoriesFragment : Fragment() {
@@ -41,6 +43,7 @@ class SearchRepositoriesFragment : Fragment() {
             override fun onQueryTextSubmit(query: String): Boolean {
 
                 if (query.length > 2) {
+                    mProgressBarSearch.visibility = View.VISIBLE
                     loadDataSearch(query)
                 }
                 return true
@@ -64,19 +67,18 @@ class SearchRepositoriesFragment : Fragment() {
 
     private fun loadDataSearch(q: String) {
         GlobalScope.launch(Dispatchers.Main) {
-                val dataSearch = searchViewModel.getResultSearch(q)
-                withContext(Dispatchers.Main){
-                    mProgressBarSearch.visibility = View.VISIBLE
-                    dataSearch.observe(requireActivity(), getResult)
-                }
+            val dataSearch = searchViewModel.getResultSearch(q)
+            withContext(Dispatchers.Main) {
+                dataSearch.observe(requireActivity(), getResult)
             }
+        }
     }
 
     private val getResult = Observer<List<SearchEntity>> {
         if (it != null) {
-            mProgressBarSearch.visibility = View.GONE
             searchAdapter.setResults(it)
             searchAdapter.notifyDataSetChanged()
+            mProgressBarSearch.visibility = View.GONE
         } else {
             mProgressBarSearch.visibility = View.VISIBLE
         }
